@@ -1,7 +1,6 @@
 import { translate } from '../i18n/mobile-i18n'
 import type { ProjectLoadingActionsModel } from './use-mobile-tasks-project-loading-actions'
 import {
-  View,
   clearMobileTaskCopyFeedbackTimer,
   dropFailedGitHubRepoSlugEntries,
   useCallback,
@@ -92,7 +91,7 @@ export function useMobileTasksListAndDetailEffects(model: ProjectLoadingActionsM
     return () => clearTimeout(timer)
   }, [githubKind, provider, query, taskStateHydrated])
 
-  const setTaskCopyFeedbackRootRef = useCallback((node: View | null): void => {
+  const setTaskCopyFeedbackRootRef = useCallback((node: unknown): void => {
     if (node !== null) {
       return
     }
